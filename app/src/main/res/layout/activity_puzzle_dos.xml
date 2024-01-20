@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".puzzles.PuzzleDos">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textoNombre"
+        android:layout_alignParentTop="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:id="@+id/imagenesStarWars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textoNombre"
+            android:layout_centerVertical="true"
+            android:columnCount="4"
+            android:rowCount="2">
+
+            <ImageView
+                android:id="@+id/starwars1"
+                android:layout_margin="0dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/starwars1" />
+
+            <ImageView
+                android:id="@+id/starwars2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars2" />
+
+            <ImageView
+                android:id="@+id/starwars3"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars3" />
+
+            <ImageView
+                android:id="@+id/starwars4"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars4" />
+
+            <ImageView
+                android:id="@+id/starwars5"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars5" />
+
+            <ImageView
+                android:id="@+id/starwars6"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars6" />
+
+            <ImageView
+                android:id="@+id/starwars7"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars7" />
+
+            <ImageView
+                android:id="@+id/starwars8"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars8" />
+            <ImageView
+                android:id="@+id/starwars9"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars9"
+                />
+            <ImageView
+                android:id="@+id/starwars10"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars10"
+                />
+            <ImageView
+                android:id="@+id/starwars11"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars11" />
+            <ImageView
+                android:id="@+id/starwars12"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars12" />
+            <ImageView
+                android:id="@+id/starwars13"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars13" />
+            <ImageView
+                android:id="@+id/starwars14"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars14" />
+            <ImageView
+                android:id="@+id/starwars15"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars15" />
+            <ImageView
+                android:id="@+id/starwars16"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="0dp"
+                android:src="@drawable/starwars16" />
+        </GridLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/puntuacion2"
+        android:text="@string/numero_de_intentos"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
