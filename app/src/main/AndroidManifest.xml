@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PuzzleJuanAlbertoRadoHernandez"
         tools:targetApi="31">
         <activity
+            android:name=".puntuaciones"
+            android:exported="false" />
+        <activity
             android:name=".puzzles.PuzzleDos"
             android:exported="false" />
         <activity

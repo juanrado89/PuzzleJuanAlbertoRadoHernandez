@@ -3,11 +3,13 @@ package com.example.puzzlejuanalbertoradohernandez;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.puzzlejuanalbertoradohernandez.BBDD.UsuariosHelper;
 import com.example.puzzlejuanalbertoradohernandez.puzzles.Puzzle;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,10 +23,14 @@ public class MainActivity extends AppCompatActivity {
         nombre = findViewById(R.id.IntNombre);
         Intent inicio = new Intent(this, Puzzle.class);
 
+        UsuariosHelper us = new UsuariosHelper(this);
+        SQLiteDatabase sldb = us.getReadableDatabase();
+
         iniciar = findViewById(R.id.inicio);
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String resultadoNombre = nombre.getText().toString();
                 if(!resultadoNombre.isEmpty()){
                     inicio.setAction("envio.nombre");

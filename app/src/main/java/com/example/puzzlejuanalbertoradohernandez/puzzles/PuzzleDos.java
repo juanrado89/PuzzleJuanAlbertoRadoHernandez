@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.puzzlejuanalbertoradohernandez.R;
 import com.example.puzzlejuanalbertoradohernandez.datos.UsuariosDatos;
 import com.example.puzzlejuanalbertoradohernandez.models.UsuarioPuzzle;
+import com.example.puzzlejuanalbertoradohernandez.puntuaciones;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -247,9 +248,7 @@ public class PuzzleDos extends AppCompatActivity {
                     }
                 }
                 mensaje.show();
-                Intent resultado = new Intent(this, PuzzleDos.class);
-                resultado.setAction("envio.nombre");
-                resultado.putExtra("nombre",nombre);
+                Intent resultado = new Intent(this, puntuaciones.class);
                 startActivity(resultado);
             }
         }
