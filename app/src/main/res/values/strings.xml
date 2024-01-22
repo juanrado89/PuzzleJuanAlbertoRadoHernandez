@@ -3,12 +3,13 @@
     <string name="ordena_el_puzzle">"Ordena el Puzzle "</string>
     <string name="numero_de_intentos">"Numero de intentos: "</string>
     <string name="title_activity_puzzle_dos">puzzleDos</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="puntucaiones">puntucaiones</string>
+    <string name="volver">Volver</string>
+    <string name="puntuaci_n">Puntuación</string>
+    <string name="nombre">Nombre</string>
+    <string name="id">ID</string>
+    <string name="puntuacion_puzzle_2">Puntuacion puzzle 2</string>
+    <string name="puntuacion_puzzle_1">Puntuacion puzzle 1</string>
+
 </resources>

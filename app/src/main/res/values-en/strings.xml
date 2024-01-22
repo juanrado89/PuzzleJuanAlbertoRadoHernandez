@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PuzzleJuanAlbertoRadoHernandez</string>
+    <string name="ordena_el_puzzle">"Order the puzzle "</string>
+    <string name="numero_de_intentos">"Number of tries: "</string>
+    <string name="title_activity_puzzle_dos">puzzleDos</string>
+    <string name="iniciar">Start</string>
+    <string name="puntucaiones">Ranking</string>
+    <string name="volver">Back</string>
+    <string name="puntuaci_n">Score</string>
+    <string name="nombre">Name</string>
+    <string name="id">ID</string>
+    <string name="puntuacion_puzzle_2">Scores of puzzle 2</string>
+    <string name="puntuacion_puzzle_1">Scores of puzzle 1</string>
+</resources>

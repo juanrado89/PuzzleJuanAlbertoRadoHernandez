@@ -4,20 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#023761"
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/IntNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/IntNombre"
         android:inputType="text"
-        />
+        android:textColor="#FAF9F9" />
+
     <Button
+        android:id="@+id/inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/inicio"
         android:layout_below="@+id/IntNombre"
-        android:text="Iniciar"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/iniciar" />
+
+    <Button
+        android:id="@+id/ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inicio"
+        android:layout_centerHorizontal="true"
+        android:text="@string/puntucaiones" />
 
 </RelativeLayout>

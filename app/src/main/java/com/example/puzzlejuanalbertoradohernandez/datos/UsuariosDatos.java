@@ -37,31 +37,38 @@ public class UsuariosDatos {
     }
 
     public List<UsuarioPuzzle> getUsuarioByName(UsuarioPuzzle usuario){
-        SQLiteDatabase sldb = db.getWritableDatabase();
+        SQLiteDatabase sldb = db.getReadableDatabase();
         String sentencia = "select * from " + nombreTabla + " where nombreUsuario like ?;";
         String[] argumentos = {usuario.getNombreUsuario()};
         List<UsuarioPuzzle> lista = new ArrayList<>();
         Cursor cursor = sldb.rawQuery(sentencia,argumentos);
-        if(!cursor.isClosed() && cursor.moveToFirst()){
-            while(cursor.moveToNext()){
-                lista.add(new UsuarioPuzzle(cursor.getInt(0),cursor.getString(1) ,cursor.getInt(2)));
-            }
+        if(cursor != null && cursor.moveToFirst()){
+            do {
+                lista.add(new UsuarioPuzzle(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
+            } while (cursor.moveToNext());
         }
-        cursor.close();
+        if (cursor != null) {
+            cursor.close();
+        }
         sldb.close();
         return lista;
     }
     public List<UsuarioPuzzle> getAllUsuarios(){
-        SQLiteDatabase sldb = db.getWritableDatabase();
+        SQLiteDatabase sldb = db.getReadableDatabase();
         String sentencia = "select * from " + nombreTabla + ";";
         List<UsuarioPuzzle> lista = new ArrayList<>();
         Cursor cursor = sldb.rawQuery(sentencia,null);
-        if(!cursor.isClosed() && cursor.moveToFirst()){
-            while(cursor.moveToNext()){
-                lista.add(new UsuarioPuzzle(cursor.getInt(0),cursor.getString(1) ,cursor.getInt(2)));
-            }
+
+        if(cursor != null && cursor.moveToFirst()){
+            do {
+                lista.add(new UsuarioPuzzle(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
+            } while (cursor.moveToNext());
         }
-        cursor.close();
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
         sldb.close();
         return lista;
     }

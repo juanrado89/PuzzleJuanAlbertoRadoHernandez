@@ -33,9 +33,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull UsuarioAdapter.ViewHolder holder, int position) {
         UsuarioPuzzle usuario = lista.get(position);
-        holder.id.setText(usuario.getId());
+        holder.id.setText(String.valueOf(usuario.getId()));
         holder.nombre.setText(usuario.getNombreUsuario());
-        holder.puntuacion.setText(usuario.getPuntuacion());
+        holder.puntuacion.setText(String.valueOf(usuario.getPuntuacion()));
     }
 
     @Override

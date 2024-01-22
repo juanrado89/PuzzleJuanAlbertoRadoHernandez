@@ -16,15 +16,13 @@ public class MainActivity extends AppCompatActivity {
 
     EditText nombre;
     Button iniciar;
+    Button puntuaciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         nombre = findViewById(R.id.IntNombre);
         Intent inicio = new Intent(this, Puzzle.class);
-
-        UsuariosHelper us = new UsuariosHelper(this);
-        SQLiteDatabase sldb = us.getReadableDatabase();
 
         iniciar = findViewById(R.id.inicio);
         iniciar.setOnClickListener(new View.OnClickListener() {
@@ -36,10 +34,20 @@ public class MainActivity extends AppCompatActivity {
                     inicio.setAction("envio.nombre");
                     inicio.putExtra("nombre",resultadoNombre);
                     startActivity(inicio);
+                    finish();
                 }else{
                     nombre.setError("Introduce tu nombre para empezar la aplicacion");
                 }
 
+            }
+        });
+        Intent punt = new Intent(this,com.example.puzzlejuanalbertoradohernandez.puntuaciones.class);
+        puntuaciones = findViewById(R.id.ranking);
+        puntuaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(punt);
+                finish();
             }
         });
 

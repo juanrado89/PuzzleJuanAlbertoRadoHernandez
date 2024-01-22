@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
@@ -35,11 +36,16 @@ public class PuzzleDos extends AppCompatActivity {
     private ImageView imagenSeleccionada1;
     private ImageView imagenSeleccionada2;
     private static final String CONTADOR= "contador";
+    private MediaPlayer md;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle_dos);
 
+        int idCancion = R.raw.duel;
+        md = MediaPlayer.create(this,idCancion);
+        md.setLooping(true);
+        md.start();
         gridLayout = findViewById(R.id.imagenesStarWars);
         result = findViewById(R.id.puntuacion2);
 
@@ -234,22 +240,27 @@ public class PuzzleDos extends AppCompatActivity {
             imagenSeleccionada2 = null;
             if(verificarCoincidenciaDrawables()){
                 Toast mensaje = Toast.makeText(getApplicationContext(),"Has ganado!!!", Toast.LENGTH_LONG);
-                UsuariosDatos us = new UsuariosDatos(this,"puzzle_dos");
+                UsuariosDatos us = new UsuariosDatos(this,"puzzleDos");
                 Intent inicio = getIntent();
                 String nombre = inicio.getStringExtra("nombre");
                 UsuarioPuzzle usuario = new UsuarioPuzzle(0,nombre,contador);
                 List<UsuarioPuzzle> comprobacion = us.getUsuarioByName(usuario);
                 if(comprobacion.isEmpty()){
                     us.insertarUsuarios(nombre,contador);
+
                 }else{
                     if(comprobacion.get(0).getPuntuacion() > contador){
                         usuario.setId(comprobacion.get(0).getId());
                         us.actualizarPuntuacion(usuario);
                     }
                 }
+
+
                 mensaje.show();
                 Intent resultado = new Intent(this, puntuaciones.class);
+                md.stop();
                 startActivity(resultado);
+                finish();
             }
         }
     }
@@ -262,14 +273,22 @@ public class PuzzleDos extends AppCompatActivity {
 
     private boolean verificarCoincidenciaDrawables() {
         ImageView[] imagenes = {
-                findViewById(R.id.imagen1),
-                findViewById(R.id.imagen2),
-                findViewById(R.id.imagen3),
-                findViewById(R.id.imagen4),
-                findViewById(R.id.imagen5),
-                findViewById(R.id.imagen6),
-                findViewById(R.id.imagen7),
-                findViewById(R.id.imagen8)
+                findViewById(R.id.starwars1),
+                findViewById(R.id.starwars2),
+                findViewById(R.id.starwars3),
+                findViewById(R.id.starwars4),
+                findViewById(R.id.starwars5),
+                findViewById(R.id.starwars6),
+                findViewById(R.id.starwars7),
+                findViewById(R.id.starwars8),
+                findViewById(R.id.starwars9),
+                findViewById(R.id.starwars10),
+                findViewById(R.id.starwars11),
+                findViewById(R.id.starwars12),
+                findViewById(R.id.starwars13),
+                findViewById(R.id.starwars14),
+                findViewById(R.id.starwars15),
+                findViewById(R.id.starwars16)
         };
 
         for (ImageView imageView : imagenes) {

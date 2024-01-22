@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
@@ -35,11 +36,16 @@ public class Puzzle extends AppCompatActivity {
     private ImageView imagenSeleccionada1;
     private ImageView imagenSeleccionada2;
     private static final String CONTADOR= "contador";
+    private MediaPlayer md;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
 
+        int idCancion = R.raw.march;
+        md = MediaPlayer.create(this,idCancion);
+        md.setLooping(true);
+        md.start();
         gridLayout = findViewById(R.id.imagenes);
         result = findViewById(R.id.puntuacion);
 
@@ -194,24 +200,29 @@ public class Puzzle extends AppCompatActivity {
             imagenSeleccionada2 = null;
             if(verificarCoincidenciaDrawables()){
                 Toast mensaje = Toast.makeText(getApplicationContext(),"Has ganado!!!", Toast.LENGTH_LONG);
-                UsuariosDatos us = new UsuariosDatos(this,"puzzle_uno");
+                UsuariosDatos us = new UsuariosDatos(this,"puzzleUno");
                 Intent inicio = getIntent();
                 String nombre = inicio.getStringExtra("nombre");
                 UsuarioPuzzle usuario = new UsuarioPuzzle(0,nombre,contador);
                 List<UsuarioPuzzle> comprobacion = us.getUsuarioByName(usuario);
                 if(comprobacion.isEmpty()){
                     us.insertarUsuarios(nombre,contador);
+
                 }else{
                     if(comprobacion.get(0).getPuntuacion() > contador){
                         usuario.setId(comprobacion.get(0).getId());
                         us.actualizarPuntuacion(usuario);
                     }
                 }
+
+
                 mensaje.show();
                 Intent puzzle2 = new Intent(this, PuzzleDos.class);
                 puzzle2.setAction("envio.nombre");
                 puzzle2.putExtra("nombre",nombre);
+                md.stop();
                 startActivity(puzzle2);
+                finish();
             }
         }
     }
